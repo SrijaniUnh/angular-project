@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <h2 class="text-center">Search Books</h2>
+      <form (ngSubmit)="searchBooks()" class="mb-3">
+        <div class="form-group row">
+          <label for="bookName" class="col-sm-3 col-form-label">Book Name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control" id="bookName" name="bookName" [(ngModel)]="bookName" required>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col-sm-9 offset-sm-3">
+            <button type="submit" class="btn btn-primary">Search</button>
+          </div>
+        </div>
+      </form>
+      <div *ngIf="searchResults">
+        <h3>Search Results</h3>
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th>Title</th>
+              <th>Author</th>
+              <th>Publish Date</th>
+              <th>Subject</th>
+              <th>ISBN</th>
+              <th>Cover</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let book of searchResults">
+              <td>{{ book.title }}</td>
+              <td>{{ book.author }}</td>
+              <td>{{ book.publish_date }}</td>
+              <td>{{ book.subject }}</td>
+              <td>{{ book.isbn }}</td>
+              <td><img [src]="book.cover_url" alt="Book Cover" class="img-fluid"></td>
+              <td><button class="btn btn-primary" (click)="addToMyList(book)">Add to My List</button></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

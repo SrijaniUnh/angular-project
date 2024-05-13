@@ -1,0 +1,30 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-10">
+      <table class="table">
+        <thead class="thead-light">
+          <tr>
+            <th>Title</th>
+            <th>Author</th>
+            <th>Publish Date</th>
+            <th>Subject</th>
+            <th>ISBN</th>
+            <th>Cover</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let book of userBookList">
+            <td>{{ book.title }}</td>
+            <td>{{ book.author }}</td>
+            <td>{{ book.publish_date }}</td>
+            <td>{{ book.subject }}</td>
+            <td>{{ book.isbn }}</td>
+            <td><img [src]="book.cover_url" alt="Book Cover" class="img-fluid"></td>
+            <td><button class="btn btn-primary" >Delete</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
